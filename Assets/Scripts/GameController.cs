@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
 
-    public static GameController Instance;
+    public static GameController InstanceG;
 
     int score = 0;
     int lives = 3;
@@ -15,33 +15,44 @@ public class GameController : MonoBehaviour
 
     void Awake() 
     {
-        if (Instance != null)
+        if (InstanceG != null)
         {
             Destroy(gameObject);
             return;
         }
 
-        Instance = this;
+        InstanceG = this;
         DontDestroyOnLoad(gameObject);
     }
 
-    void Start()
+    public void UpdateReferences()
     {
-        // this.myBall = FindObjectByType<Ball>();
-        // this.myPaddle = FindObjectByType<Paddle>();
+        this.myBall = FindObjectOfType<Ball>();
+        this.myPaddle = FindObjectOfType<Paddle>();
     }
 
-    void Update()
-    {
-        
-    }
-
-    public void decreaseLife()
+    public void HandleDeath()
     {
         this.lives--;
-        if (this.lives == 0) 
+        // UnityEngine.Object.Destroy(livesText.transform.GetChild(numPlayerLives).gameObject);
+        if (this.lives == 0)
         {
-            Debug.Log("game over");
+            this.LoseGame();
         }
+        else
+        {
+            this.Reload();
+        }
+    }
+
+    void Reload()
+    {
+        this.myBall.ResetPosition();
+        this.myPaddle.ResetPosition();
+    }
+
+    void LoseGame()
+    {
+        Debug.Log("you lost");
     }
 }

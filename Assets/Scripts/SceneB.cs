@@ -2,37 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScenePersist : MonoBehaviour
+public class SceneB : MonoBehaviour
 {
-    public static int numPersists = 0;
-
+    public static SceneB InstanceB;
     Brick myBrick;
     int numBricks;
 
     void Awake()
     {
-        if (numPersists >= 2)
+        if (InstanceB != null)
         {
             Destroy(gameObject);
             return;
         }
 
-        numPersists++;
+        InstanceB = this;
         DontDestroyOnLoad(gameObject);
-    }
-
-    public void AddBrick()
-    {
-        this.numBricks++;
     }
 
     public void SubtractBrick()
     {
-        this.numBricks--;
+        // add score in game controller
     }
 
     public void EndScene()
     {
         Destroy(gameObject);
     }
+
 }

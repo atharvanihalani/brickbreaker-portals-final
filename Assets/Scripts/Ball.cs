@@ -9,21 +9,23 @@ public class Ball : MonoBehaviour
 
     Rigidbody2D myRigidbody;
     Paddle myPaddle;
+    [SerializeField] GameController myController;
 
     void Awake() 
     {
         this.myRigidbody = GetComponent<Rigidbody2D>();
-        this.myPaddle = GameObject.FindGameObjectsWithTag("Paddle")[0].GetComponent<Paddle>();
+        this.myPaddle = GameObject.FindObjectOfType<Paddle>();
     }
     
     void Start()
     {
+        this.myController.UpdateReferences();
         this.LaunchBall();
     }
 
     void LaunchBall() 
     {
-        myRigidbody.AddForce(reboundDirectionVector * currentSpeed, ForceMode2D.Impulse);
+        this.myRigidbody.AddForce(reboundDirectionVector * currentSpeed, ForceMode2D.Impulse);
     }
 
     void OnCollisionEnter2D(Collision2D other) 
@@ -33,8 +35,9 @@ public class Ball : MonoBehaviour
             float normalizedContactPoint = this.GetNormalizedContactPoint();
             this.UpdateReboundVector(normalizedContactPoint);
 
-            myRigidbody.velocity = Vector2.zero;
-            myRigidbody.AddForce(reboundDirectionVector * currentSpeed, ForceMode2D.Impulse);
+            this.myRigidbody.velocity = Vector2.zero;
+            this.LaunchBall();
+            // this.myRigidbody.AddForce(reboundDirectionVector * currentSpeed, ForceMode2D.Impulse);
         }
     }
 
@@ -60,7 +63,18 @@ public class Ball : MonoBehaviour
     {
         if (other.tag == "Ground") 
         {
-            Debug.Log("oops, u died");
+            this.myController.HandleDeath();
         }
+    }
+
+    public void ResetPosition()
+    {
+        this.myRigidbody.velocity = Vector2.zero;
+        this.reboundDirectionVector = Vector2.down;
+
+        Vector2 homePosition = new Vector2(0, 4);
+        transform.position = homePosition;
+
+        this.LaunchBall();
     }
 }

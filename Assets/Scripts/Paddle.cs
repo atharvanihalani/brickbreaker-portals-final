@@ -59,4 +59,10 @@ public class Paddle : MonoBehaviour
     {
         return this.myWidth;
     }
+
+    public void ResetPosition()
+    {
+        Vector2 homePosition = new Vector2(0, -3.8f);
+        transform.position = homePosition;
+    }
 }
