@@ -1,0 +1,2 @@
+LoadNextLevel() and Teleport()
+- game session needs to update its references
