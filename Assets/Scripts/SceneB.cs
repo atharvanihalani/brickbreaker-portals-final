@@ -5,7 +5,7 @@ using UnityEngine;
 public class SceneB : MonoBehaviour
 {
     public static SceneB InstanceB;
-    Brick myBrick;
+    BricksMap myBricksMap;
     int numBricks;
 
     void Awake()

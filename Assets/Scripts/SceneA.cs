@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SceneA : MonoBehaviour
+public class SceneA : MonoBehaviour, IScene
 {
     public static SceneA InstanceA;
-    Brick myBrick;
+    BricksMap myBricksMap;
     int numBricks;
+    GameController myController;
 
     void Awake()
     {
@@ -18,20 +19,24 @@ public class SceneA : MonoBehaviour
 
         InstanceA = this;
         DontDestroyOnLoad(gameObject);
+
+        this.myBricksMap = GetComponentInChildren<BricksMap>();
+        this.myController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
     }
 
-    public void AddBrick()
+    void Start()
     {
-        this.numBricks++;
+        this.numBricks = this.myBricksMap.GetBrickCount();
     }
 
     public void SubtractBrick()
     {
         this.numBricks--;
+        this.myController.IncreaseScore();
         CheckLevelComplete();
     }
 
-    public void EndScene()
+    public void DestroyScene()
     {
         Destroy(gameObject);
     }
@@ -40,7 +45,7 @@ public class SceneA : MonoBehaviour
     {
         if (numBricks == 0)
         {
-            
+            Debug.Log("load next level");
         }
     }
 }
