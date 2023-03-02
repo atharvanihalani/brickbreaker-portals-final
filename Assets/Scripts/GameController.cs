@@ -13,8 +13,7 @@ public class GameController : MonoBehaviour
     [SerializeField] TextMeshProUGUI livesText;
     [SerializeField] TextMeshProUGUI scoreText;
 
-    Ball myBall;
-    Paddle myPaddle;
+    Scene currentScene;
 
     void Awake() 
     {
@@ -26,12 +25,8 @@ public class GameController : MonoBehaviour
 
         InstanceG = this;
         DontDestroyOnLoad(gameObject);
-    }
 
-    public void UpdateReferences()
-    {
-        this.myBall = FindObjectOfType<Ball>();
-        this.myPaddle = FindObjectOfType<Paddle>();
+        this.currentScene = GameObject.FindWithTag("Scene").GetComponent<Scene>();
     }
 
 
@@ -53,14 +48,8 @@ public class GameController : MonoBehaviour
         }
         else
         {
-            this.ReloadObjectPositions();
+            this.currentScene.ReloadObjectPositions();
         }
-    }
-
-    void ReloadObjectPositions()
-    {
-        this.myBall.ResetPosition();
-        this.myPaddle.ResetPosition();
     }
 
     void LoseGame()

@@ -5,12 +5,12 @@ using UnityEngine.Tilemaps;
 
 public class BricksMap : MonoBehaviour
 {
-    IScene myScene;
+    Scene myScene;
     Tilemap myTilemap;
 
     void Awake()
     {
-        this.myScene = GetComponentInParent<IScene>();
+        this.myScene = GetComponentInParent<Scene>();
         this.myTilemap = GetComponent<Tilemap>();
     }
 

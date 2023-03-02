@@ -1,2 +1,12 @@
 LoadNextLevel() and Teleport()
 - game session needs to update its references
+
+Bugs:
+- ball goes straight along wall edge when reflecting at a steet angle
+
+Features to add:
+- PORTALS
+- end screens
+- multiple level design
+- tweaks: particle effects, dimensions, _____
+- detect when ball is stuck

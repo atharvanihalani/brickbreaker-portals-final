@@ -6,20 +6,21 @@ public class Ball : MonoBehaviour
 {
     [SerializeField] float currentSpeed;
     Vector2 reboundDirectionVector = Vector2.down;
-
     Rigidbody2D myRigidbody;
+
+    Scene myScene;
     Paddle myPaddle;
-    [SerializeField] GameController myController;
+    
 
     void Awake() 
     {
         this.myRigidbody = GetComponent<Rigidbody2D>();
+        this.myScene = GetComponentInParent<Scene>();
         this.myPaddle = GameObject.FindObjectOfType<Paddle>();
     }
     
     void Start()
     {
-        this.myController.UpdateReferences();
         this.LaunchBall();
     }
 
@@ -37,7 +38,6 @@ public class Ball : MonoBehaviour
 
             this.myRigidbody.velocity = Vector2.zero;
             this.LaunchBall();
-            // this.myRigidbody.AddForce(reboundDirectionVector * currentSpeed, ForceMode2D.Impulse);
         }
     }
 
@@ -63,7 +63,7 @@ public class Ball : MonoBehaviour
     {
         if (other.tag == "Ground") 
         {
-            this.myController.HandleDeath();
+            this.myScene.HandleDeath();
         }
     }
 
