@@ -11,6 +11,7 @@ public class Scene : MonoBehaviour
     BricksMap myBricksMap;
     Ball myBall;
     Paddle myPaddle;
+    bool justTeleported = false;
 
     void Awake()
     {
@@ -37,14 +38,6 @@ public class Scene : MonoBehaviour
     void Start()
     {
         this.numBricks = this.myBricksMap.GetBrickCount();
-    }
-
-    public void Teleport()
-    {
-        /*
-        switch over brick tilemap
-        move ball position
-        */
     }
 
     public void SubtractBrick()
@@ -83,5 +76,27 @@ public class Scene : MonoBehaviour
     {
         this.myBall.ResetPosition();
         this.myPaddle.ResetPosition();
+    }
+
+    public void Teleport(Vector3 ballNewPos)
+    {
+        if (this.justTeleported) 
+        {
+            return;
+        }
+        this.justTeleported = true;
+        StartCoroutine(this.ResetJustTeleported());
+
+        this.myBall.Teleport(ballNewPos);
+        
+        // change tile map
+        // change background etc
+        // move ball
+    }
+
+    public IEnumerator ResetJustTeleported()
+    {
+        yield return new WaitForSeconds(1);
+        this.justTeleported = false;
     }
 }

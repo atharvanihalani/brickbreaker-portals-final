@@ -1,8 +1,9 @@
-LoadNextLevel() and Teleport()
-- game session needs to update its references
+TODO
+- bigger brick/portal size & smaller ball
 
 Bugs:
 - ball goes straight along wall edge when reflecting at a steet angle
+- infinite portal rebounding
 
 Features to add:
 - PORTALS

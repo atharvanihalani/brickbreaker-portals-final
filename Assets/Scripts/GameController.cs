@@ -12,7 +12,6 @@ public class GameController : MonoBehaviour
     int score = 0;
     [SerializeField] TextMeshProUGUI livesText;
     [SerializeField] TextMeshProUGUI scoreText;
-
     Scene currentScene;
 
     void Awake() 

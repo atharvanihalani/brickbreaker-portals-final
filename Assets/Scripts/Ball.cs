@@ -77,4 +77,9 @@ public class Ball : MonoBehaviour
 
         this.LaunchBall();
     }
+
+    public void Teleport(Vector3 newPos)
+    {
+        transform.position = newPos;
+    }
 }
