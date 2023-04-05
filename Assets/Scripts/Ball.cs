@@ -40,7 +40,7 @@ public class Ball : MonoBehaviour
             this.LaunchBall();
         }
     }
-
+    
     void UpdateReboundVector(float normalizedContactPoint)
     {
         float outgoingAngle = normalizedContactPoint * 60;

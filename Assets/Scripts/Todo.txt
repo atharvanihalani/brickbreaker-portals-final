@@ -1,12 +1,13 @@
 TODO
 - bigger brick/portal size & smaller ball
+- chuck rotationDegree field in Portals
 
 Bugs:
-- ball goes straight along wall edge when reflecting at a steet angle
+- ball goes straight along wall edge when reflecting at a steep angle
 - infinite portal rebounding
+? ball moves at a v steep angle => hella boring
 
 Features to add:
-- PORTALS
 - end screens
 - multiple level design
 - tweaks: particle effects, dimensions, _____

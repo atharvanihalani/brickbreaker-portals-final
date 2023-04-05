@@ -5,6 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class BricksMap : MonoBehaviour
 {
+    [SerializeField] TileBase myTileBase;
     Scene myScene;
     Tilemap myTilemap;
 
@@ -29,6 +30,22 @@ public class BricksMap : MonoBehaviour
         return bricks;
     }
 
+    public List<Vector3Int> GetBrickPositions() 
+    {
+        List<Vector3Int> brickPositions = new List<Vector3Int>();
+        this.myTilemap.CompressBounds();
+        BoundsInt bounds = myTilemap.cellBounds;
+        foreach (Vector3Int pos in bounds.allPositionsWithin)
+        {
+            if (myTilemap.GetTile(pos) != null)
+            {
+                brickPositions.Add(pos);
+            }
+        }
+
+        return brickPositions;
+    }
+
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.collider.tag == "Ball")
@@ -40,5 +57,20 @@ public class BricksMap : MonoBehaviour
             this.myTilemap.SetTile(hitPointCell, null);
             this.myScene.SubtractBrick();
         }
+    }
+
+    public void ClearAll()
+    {
+        this.myTilemap.ClearAllTiles();
+    }
+
+    public void AddBricksAt(Vector3Int[] positions)
+    {
+        TileBase[] tileArray = new TileBase[positions.Length];
+        for (int i = 0; i < tileArray.Length; i++)
+        {
+            tileArray[i] = this.myTileBase;
+        }
+        this.myTilemap.SetTiles(positions, tileArray);
     }
 }

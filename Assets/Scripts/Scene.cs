@@ -9,6 +9,7 @@ public class Scene : MonoBehaviour
     int numBricks;
     GameController myController;
     BricksMap myBricksMap;
+    AltBricksMap myAltBricksMap;
     Ball myBall;
     Paddle myPaddle;
     bool justTeleported = false;
@@ -26,6 +27,7 @@ public class Scene : MonoBehaviour
 
         this.myController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
         this.myBricksMap = GetComponentInChildren<BricksMap>();
+        this.myAltBricksMap = GetComponentInChildren<AltBricksMap>();
         this.myBall = GetComponentInChildren<Ball>();
         this.myPaddle = GetComponentInChildren<Paddle>();
 
@@ -49,7 +51,6 @@ public class Scene : MonoBehaviour
             CheckLevelComplete();
         } else
         {
-            // 
             this.myController.IncreaseScore();
         }
     }
@@ -88,11 +89,23 @@ public class Scene : MonoBehaviour
         StartCoroutine(this.ResetJustTeleported());
 
         this.myBall.Teleport(ballNewPos);
-        
-        // change tile map
+
+        Vector3Int[] brickPositions = this.myBricksMap.GetBrickPositions().ToArray();
+        Vector3Int[] altBrickPositions = this.myAltBricksMap.GetBrickPositions().ToArray();
+
+        this.SwitchBrickMaps(brickPositions, altBrickPositions);
+
         // change background etc
-        // move ball
     }
+
+    void SwitchBrickMaps(Vector3Int[] brickPos, Vector3Int[] altBrickPos)  
+    {
+        this.myAltBricksMap.ClearAll();
+        this.myAltBricksMap.AddBricksAt(brickPos);
+        this.myBricksMap.ClearAll();
+        this.myBricksMap.AddBricksAt(altBrickPos);
+    }
+
 
     public IEnumerator ResetJustTeleported()
     {

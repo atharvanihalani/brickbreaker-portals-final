@@ -1,18 +1,48 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class AltBricksMap : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] TileBase myTileBase;
+    Scene myScene;
+    Tilemap myTilemap;
+
+    void Awake()
     {
-        
+        this.myScene = GetComponentInParent<Scene>();
+        this.myTilemap = GetComponent<Tilemap>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public List<Vector3Int> GetBrickPositions() 
     {
-        
+        List<Vector3Int> altBrickPositions = new List<Vector3Int>();
+        this.myTilemap.CompressBounds();
+        BoundsInt bounds = myTilemap.cellBounds;
+        foreach (Vector3Int pos in bounds.allPositionsWithin)
+        {
+            if (myTilemap.GetTile(pos) != null)
+            {
+                altBrickPositions.Add(pos);
+            }
+        }
+
+        return altBrickPositions;
+    }
+    
+    public void ClearAll()
+    {
+        this.myTilemap.ClearAllTiles();
+    }
+
+    public void AddBricksAt(Vector3Int[] positions)
+    {
+        TileBase[] tileArray = new TileBase[positions.Length];
+        for (int i = 0; i < tileArray.Length; i++)
+        {
+            tileArray[i] = this.myTileBase;
+        }
+        this.myTilemap.SetTiles(positions, tileArray);
     }
 }

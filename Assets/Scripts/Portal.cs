@@ -6,12 +6,10 @@ public class Portal : MonoBehaviour
 {
     Scene myScene;
     [SerializeField] Portal portalPair;
-    float rotationDegree;
 
     void Awake()
     {
         this.myScene = GetComponentInParent<Scene>();
-        this.rotationDegree = transform.rotation.eulerAngles.z;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -28,8 +26,4 @@ public class Portal : MonoBehaviour
         return transform.position;
     }
 
-    public float GetRotationDegree()
-    {
-        return this.rotationDegree;
-    }
 }
