@@ -1,14 +1,20 @@
 TODO
-- bigger brick/portal size & smaller ball
-- chuck rotationDegree field in Portals
+- NEW LEVELS
+- portal graphics (light shining thru types)
+- diff graphics for altmap and regmap (background, bricks, sound¿)
+- ADD AOUND
+- restart level option
+- portal reset on death
+- fix portal angle mechanics
+- stretch tiles so they fit width of screen exactly
+- powerups??
+- particle effects
+- end screens
 
 Bugs:
 - ball goes straight along wall edge when reflecting at a steep angle
 - infinite portal rebounding
+- edges don't line up w screen
+- uneven collision w brick edges (use tilemap collider?)
 ? ball moves at a v steep angle => hella boring
 
-Features to add:
-- end screens
-- multiple level design
-- tweaks: particle effects, dimensions, _____
-- detect when ball is stuck

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     [SerializeField] float currentSpeed;
+    [SerializeField] Vector2 homePosition;
     Vector2 reboundDirectionVector = Vector2.down;
     Rigidbody2D myRigidbody;
 
@@ -72,8 +73,7 @@ public class Ball : MonoBehaviour
         this.myRigidbody.velocity = Vector2.zero;
         this.reboundDirectionVector = Vector2.down;
 
-        Vector2 homePosition = new Vector2(0, 4);
-        transform.position = homePosition;
+        transform.position = this.homePosition;
 
         this.LaunchBall();
     }
