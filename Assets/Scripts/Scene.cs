@@ -31,10 +31,10 @@ public class Scene : MonoBehaviour
         this.myBall = GetComponentInChildren<Ball>();
         this.myPaddle = GetComponentInChildren<Paddle>();
 
-        if (this.myBall != null && this.myPaddle != null && this.myBricksMap != null && this.myController != null)
-        {
-            Debug.Log("all good in da hood");
-        }
+        // if (this.myBall != null && this.myPaddle != null && this.myBricksMap != null && this.myController != null)
+        // {
+        //     Debug.Log("all good in da hood");
+        // }
     }
 
     void Start()
@@ -49,9 +49,6 @@ public class Scene : MonoBehaviour
             this.numBricks--;
             this.myController.IncreaseScore();
             CheckLevelComplete();
-        } else
-        {
-            this.myController.IncreaseScore();
         }
     }
 
@@ -94,6 +91,7 @@ public class Scene : MonoBehaviour
         Vector3Int[] altBrickPositions = this.myAltBricksMap.GetBrickPositions().ToArray();
 
         this.SwitchBrickMaps(brickPositions, altBrickPositions);
+        this.isInAlt = !this.isInAlt;
 
         // change background etc
     }

@@ -4,12 +4,18 @@ TODO
 - diff graphics for altmap and regmap (background, bricks, sound¿)
 - ADD AOUND
 - restart level option
+- wait for a sec before level reload
 - portal reset on death
 - fix portal angle mechanics
 - stretch tiles so they fit width of screen exactly
 - powerups??
 - particle effects
 - end screens
+
+Level Specific
+- L9: maybe make it more difficult to get to the portals??
+      say, a couple bricks blocking the entrance / having 
+      to bounce around angles to get there??
 
 Bugs:
 - ball goes straight along wall edge when reflecting at a steep angle
