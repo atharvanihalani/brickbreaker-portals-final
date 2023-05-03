@@ -47,7 +47,7 @@ public class GameController : MonoBehaviour
         }
         else
         {
-            this.currentScene.ReloadObjectPositions();
+            StartCoroutine(this.currentScene.ReloadObjectPositions());
         }
     }
 

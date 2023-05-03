@@ -1,14 +1,10 @@
 TODO
-- NEW LEVELS
 - portal graphics (light shining thru types)
 - diff graphics for altmap and regmap (background, bricks, sound¿)
 - ADD AOUND
-- restart level option
-- wait for a sec before level reload
-- portal reset on death
+- restart level option + home page w level select + pause menu
 - fix portal angle mechanics
 - stretch tiles so they fit width of screen exactly
-- powerups??
 - particle effects
 - end screens
 
@@ -22,5 +18,36 @@ Bugs:
 - infinite portal rebounding
 - edges don't line up w screen
 - uneven collision w brick edges (use tilemap collider?)
+- trail follows ball when life lost
 ? ball moves at a v steep angle => hella boring
 
+
+
+On Teleport
+- change ball trail gradient
+
+
+
+using UnityEngine.SceneManagement;
+using System;
+
+    public IEnumerator LoadNextLevel()
+    {
+        PauseGame();
+
+        yield return new WaitForSecondsRealtime(0);
+
+        PlayGame();
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = currentSceneIndex + 1;
+        if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)
+        {
+            DisplayWinScreen();
+        }
+        else
+        {
+            FindObjectOfType<ScenePersist>().ResetScenePersists();
+            SceneManager.LoadScene(nextSceneIndex);
+            myBrick.ReloadReferences();
+        }
+    }

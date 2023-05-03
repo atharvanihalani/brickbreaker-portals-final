@@ -16,6 +16,7 @@ public class Portal : MonoBehaviour
     {
         if (other.tag == "Ball")
         {
+            
             this.myScene.Teleport(this.portalPair.GetPos());
             Debug.Log("teleport");
         }

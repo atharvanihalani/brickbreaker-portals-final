@@ -8,16 +8,20 @@ public class Ball : MonoBehaviour
     [SerializeField] Vector2 homePosition;
     Vector2 reboundDirectionVector = Vector2.down;
     Rigidbody2D myRigidbody;
-
+    ParticleSystem myParticleSystem;
     Scene myScene;
     Paddle myPaddle;
-    
+    TrailRenderer myTrail;
+
+
 
     void Awake() 
     {
         this.myRigidbody = GetComponent<Rigidbody2D>();
         this.myScene = GetComponentInParent<Scene>();
         this.myPaddle = GameObject.FindObjectOfType<Paddle>();
+        this.myParticleSystem = GetComponentInChildren<ParticleSystem>();
+        this.myTrail = GetComponentInChildren<TrailRenderer>();
     }
     
     void Start()
@@ -32,6 +36,8 @@ public class Ball : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other) 
     {
+        this.myParticleSystem.Play();
+
         if (other.collider.tag == "Paddle")
         {
             float normalizedContactPoint = this.GetNormalizedContactPoint();
@@ -64,6 +70,7 @@ public class Ball : MonoBehaviour
     {
         if (other.tag == "Ground") 
         {
+            this.StopTrail();
             this.myScene.HandleDeath();
         }
     }
@@ -76,10 +83,21 @@ public class Ball : MonoBehaviour
         transform.position = this.homePosition;
 
         this.LaunchBall();
+        this.ResumeTrail();
     }
 
     public void Teleport(Vector3 newPos)
     {
         transform.position = newPos;
+    }
+
+    public void StopTrail()
+    {
+        this.myTrail.time = 0;
+    }
+
+    public void ResumeTrail()
+    {
+        this.myTrail.time = 1;
     }
 }

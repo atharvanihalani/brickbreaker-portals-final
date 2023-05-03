@@ -52,11 +52,6 @@ public class Scene : MonoBehaviour
         }
     }
 
-    public void DestroyScene()
-    {
-        Destroy(gameObject);
-    }
-
     void CheckLevelComplete()
     {
         if (numBricks == 0)
@@ -70,8 +65,12 @@ public class Scene : MonoBehaviour
         this.myController.HandleDeath();
     }
 
-    public void ReloadObjectPositions()
+    public IEnumerator ReloadObjectPositions()
     {
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(2);
+
+        Time.timeScale = 1;
         this.myBall.ResetPosition();
         this.myPaddle.ResetPosition();
     }
@@ -83,6 +82,7 @@ public class Scene : MonoBehaviour
             return;
         }
         this.justTeleported = true;
+        this.myBall.StopTrail();
         StartCoroutine(this.ResetJustTeleported());
 
         this.myBall.Teleport(ballNewPos);
@@ -107,7 +107,8 @@ public class Scene : MonoBehaviour
 
     public IEnumerator ResetJustTeleported()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
         this.justTeleported = false;
+        this.myBall.ResumeTrail();
     }
 }

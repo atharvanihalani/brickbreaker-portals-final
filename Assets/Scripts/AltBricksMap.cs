@@ -8,14 +8,21 @@ public class AltBricksMap : MonoBehaviour
     [SerializeField] TileBase myTileBase;
     Scene myScene;
     Tilemap myTilemap;
+    AudioSource audioSource;
 
     void Awake()
     {
         this.myScene = GetComponentInParent<Scene>();
         this.myTilemap = GetComponent<Tilemap>();
+        this.audioSource = GetComponent<AudioSource>();
     }
 
-    public List<Vector3Int> GetBrickPositions() 
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        this.audioSource.Play(0);
+    }
+
+    public List<Vector3Int> GetBrickPositions()
     {
         List<Vector3Int> altBrickPositions = new List<Vector3Int>();
         this.myTilemap.CompressBounds();
@@ -30,7 +37,7 @@ public class AltBricksMap : MonoBehaviour
 
         return altBrickPositions;
     }
-    
+
     public void ClearAll()
     {
         this.myTilemap.ClearAllTiles();

@@ -65,4 +65,5 @@ public class Paddle : MonoBehaviour
         Vector2 homePosition = new Vector2(0, -3.8f);
         transform.position = homePosition;
     }
+
 }
