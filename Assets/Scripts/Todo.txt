@@ -1,11 +1,13 @@
+toggle home screen button interactivity w GameController.activeScenes
+
 TODO
 - diff portal graphics
 - diff graphics for altmap and regmap (background, bricks, trail gradient?)
 - ADD AOUND
-- restart level option + pause menu
+- pause menu (w restart option)
 - fix portal angle mechanics ??
 - particle effects (more!!)
-- end screens
+- add end screen for level 9!!
 
 Level Specific
 - L9: maybe make it more difficult to get to the portals??

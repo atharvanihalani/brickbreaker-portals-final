@@ -18,30 +18,36 @@ public class Scene : MonoBehaviour
     Ball myBall;
     Paddle myPaddle;
     bool justTeleported = false;
-    int currentLevel;
+    int currentLevelIndex;
 
     void Awake()
     {
-        if (InstanceS != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
+        // if (InstanceS != null)
+        // {
+        //     Destroy(gameObject);
+        //     return;
+        // }
 
-        InstanceS = this;
-        DontDestroyOnLoad(gameObject);
+        // InstanceS = this;
+        // DontDestroyOnLoad(gameObject);
 
-        this.myController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
         this.myBricksMap = GetComponentInChildren<BricksMap>();
         this.myAltBricksMap = GetComponentInChildren<AltBricksMap>();
         this.myBall = GetComponentInChildren<Ball>();
         this.myPaddle = GetComponentInChildren<Paddle>();
-        this.currentLevel = SceneManager.GetActiveScene().buildIndex;
+        this.currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
+        this.myController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
     }
 
     void Start()
     {
         this.numBricks = this.myBricksMap.GetBrickCount();
+        this.myController.ReloadSceneDeets();
+    }
+
+    public int GetIndex()
+    {
+        return this.currentLevelIndex;
     }
 
     public void SubtractBrick()
@@ -57,7 +63,7 @@ public class Scene : MonoBehaviour
     {
         if (numBricks == 0)
         {
-            this.NextLevel();
+            this.myController.OnLevelWin();
             Debug.Log("load next level");
         }
     }
@@ -66,8 +72,6 @@ public class Scene : MonoBehaviour
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentSceneIndex + 1;
-        // if (currentSceneIndex == 8 / /)
-        // yield return new WaitForSecondsRealtime(2);
     }
 
     public void HandleDeath() 
@@ -77,7 +81,7 @@ public class Scene : MonoBehaviour
 
         if (this.lives == 0)
         {
-            this.myController.LoseGame();
+            this.myController.OnLevelLose();
         }
         else 
         {
