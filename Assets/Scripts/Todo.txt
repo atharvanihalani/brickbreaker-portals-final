@@ -1,11 +1,10 @@
 TODO
-- portal graphics (light shining thru types)
-- diff graphics for altmap and regmap (background, bricks, sound¿)
+- diff portal graphics
+- diff graphics for altmap and regmap (background, bricks, trail gradient?)
 - ADD AOUND
-- restart level option + home page w level select + pause menu
-- fix portal angle mechanics
-- stretch tiles so they fit width of screen exactly
-- particle effects
+- restart level option + pause menu
+- fix portal angle mechanics ??
+- particle effects (more!!)
 - end screens
 
 Level Specific
@@ -21,10 +20,6 @@ Bugs:
 - trail follows ball when life lost
 ? ball moves at a v steep angle => hella boring
 
-
-
-On Teleport
-- change ball trail gradient
 
 
 

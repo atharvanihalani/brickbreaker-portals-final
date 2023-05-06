@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Scene : MonoBehaviour
 {
@@ -58,6 +60,14 @@ public class Scene : MonoBehaviour
         {
             Debug.Log("load next level");
         }
+    }
+
+    public IEnumerator LoadNextLevel()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = currentSceneIndex + 1;
+        // if (currentSceneIndex == 8 / /)
+        yield return new WaitForSecondsRealtime(2);
     }
 
     public void HandleDeath() 

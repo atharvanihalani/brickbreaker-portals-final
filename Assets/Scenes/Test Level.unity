@@ -302,6 +302,10 @@ PrefabInstance:
       value: Test Ball
       objectReference: {fileID: 0}
     - target: {fileID: 369556598833997873, guid: 96897266f672d44598014733a8f2050a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1d4ad34158b3145d6a55ddb121f56a61, type: 3}
+    - target: {fileID: 369556598833997873, guid: 96897266f672d44598014733a8f2050a, type: 3}
       propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}

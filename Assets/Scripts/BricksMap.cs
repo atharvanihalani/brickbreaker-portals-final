@@ -8,11 +8,13 @@ public class BricksMap : MonoBehaviour
     [SerializeField] TileBase myTileBase;
     Scene myScene;
     Tilemap myTilemap;
+    AudioSource audioSource;
 
     void Awake()
     {
         this.myScene = GetComponentInParent<Scene>();
         this.myTilemap = GetComponent<Tilemap>();
+        this.audioSource = GetComponent<AudioSource>();
     }
 
     public int GetBrickCount()
@@ -50,6 +52,7 @@ public class BricksMap : MonoBehaviour
     {
         if (other.collider.tag == "Ball")
         {
+            this.audioSource.Play(0);
             Vector2 hitPoint = other.GetContact(0).point;
             Vector3 hitPoint3D = new Vector3(hitPoint.x, hitPoint.y, 0);
             Vector3Int hitPointCell = this.myTilemap.WorldToCell(hitPoint3D);
