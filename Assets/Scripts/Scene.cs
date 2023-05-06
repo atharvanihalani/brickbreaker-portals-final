@@ -3,18 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Scene : MonoBehaviour
 {
     public static Scene InstanceS;
     bool isInAlt = false;
     int numBricks;
+    int lives = 3;
+    [SerializeField] TextMeshProUGUI livesText;
     GameController myController;
     BricksMap myBricksMap;
     AltBricksMap myAltBricksMap;
     Ball myBall;
     Paddle myPaddle;
     bool justTeleported = false;
+    int currentLevel;
 
     void Awake()
     {
@@ -32,11 +36,7 @@ public class Scene : MonoBehaviour
         this.myAltBricksMap = GetComponentInChildren<AltBricksMap>();
         this.myBall = GetComponentInChildren<Ball>();
         this.myPaddle = GetComponentInChildren<Paddle>();
-
-        // if (this.myBall != null && this.myPaddle != null && this.myBricksMap != null && this.myController != null)
-        // {
-        //     Debug.Log("all good in da hood");
-        // }
+        this.currentLevel = SceneManager.GetActiveScene().buildIndex;
     }
 
     void Start()
@@ -49,7 +49,6 @@ public class Scene : MonoBehaviour
         if (!this.isInAlt)
         {
             this.numBricks--;
-            this.myController.IncreaseScore();
             CheckLevelComplete();
         }
     }
@@ -58,21 +57,32 @@ public class Scene : MonoBehaviour
     {
         if (numBricks == 0)
         {
+            this.NextLevel();
             Debug.Log("load next level");
         }
     }
 
-    public IEnumerator LoadNextLevel()
+    public void NextLevel()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentSceneIndex + 1;
         // if (currentSceneIndex == 8 / /)
-        yield return new WaitForSecondsRealtime(2);
+        // yield return new WaitForSecondsRealtime(2);
     }
 
     public void HandleDeath() 
     {
-        this.myController.HandleDeath();
+        this.lives--;
+        UnityEngine.Object.Destroy(this.livesText.transform.GetChild(this.lives).gameObject);
+
+        if (this.lives == 0)
+        {
+            this.myController.LoseGame();
+        }
+        else 
+        {
+            StartCoroutine(this.ReloadObjectPositions());
+        }
     }
 
     public IEnumerator ReloadObjectPositions()

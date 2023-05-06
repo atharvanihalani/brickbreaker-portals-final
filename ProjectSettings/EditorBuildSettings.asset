@@ -35,5 +35,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 9.unity
     guid: c4aabb2dff9464c169a68973f2b2efc5
+  - enabled: 1
+    path: Assets/Scenes/You Lose.unity
+    guid: bb5ba1d5c969c4bc183ce7384fd611e8
+  - enabled: 1
+    path: Assets/Scenes/You Win.unity
+    guid: 731750bd7f47c48bc96e28f0f8b665b5
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 44a7b7282ad3b48a0a7d80562d65ce6a, type: 2}

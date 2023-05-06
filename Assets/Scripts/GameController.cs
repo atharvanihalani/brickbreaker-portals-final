@@ -8,10 +8,6 @@ public class GameController : MonoBehaviour
 
     public static GameController InstanceG;
 
-    int lives = 3;
-    int score = 0;
-    [SerializeField] TextMeshProUGUI livesText;
-    [SerializeField] TextMeshProUGUI scoreText;
     Scene currentScene;
 
     void Awake() 
@@ -28,30 +24,7 @@ public class GameController : MonoBehaviour
         this.currentScene = GameObject.FindWithTag("Scene").GetComponent<Scene>();
     }
 
-
-    public void IncreaseScore()
-    {
-        this.score += 10;
-        string newScoreText = ("Score: " + score);
-        this.scoreText.text = newScoreText;
-    }
-
-
-    public void HandleDeath()
-    {
-        this.lives--;
-        UnityEngine.Object.Destroy(this.livesText.transform.GetChild(this.lives).gameObject);
-        if (this.lives == 0)
-        {
-            this.LoseGame();
-        }
-        else
-        {
-            StartCoroutine(this.currentScene.ReloadObjectPositions());
-        }
-    }
-
-    void LoseGame()
+    public void LoseGame()
     {
         Debug.Log("you lost");
     }

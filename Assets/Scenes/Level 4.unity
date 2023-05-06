@@ -130,42 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1550887442}
     m_Modifications:
-    - target: {fileID: 3497960435441480218, guid: 5d028ac91fba444f2a284d9d06bcbb78, type: 3}
-      propertyPath: m_CompositePaths.m_Paths.Array.data[1].Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3497960435441480218, guid: 5d028ac91fba444f2a284d9d06bcbb78, type: 3}
-      propertyPath: m_CompositePaths.m_Paths.Array.data[1].Array.data[0].x
-      value: -5.663666
-      objectReference: {fileID: 0}
-    - target: {fileID: 3497960435441480218, guid: 5d028ac91fba444f2a284d9d06bcbb78, type: 3}
-      propertyPath: m_CompositePaths.m_Paths.Array.data[1].Array.data[0].y
-      value: 2.8318183
-      objectReference: {fileID: 0}
-    - target: {fileID: 3497960435441480218, guid: 5d028ac91fba444f2a284d9d06bcbb78, type: 3}
-      propertyPath: m_CompositePaths.m_Paths.Array.data[1].Array.data[1].x
-      value: -5.663666
-      objectReference: {fileID: 0}
-    - target: {fileID: 3497960435441480218, guid: 5d028ac91fba444f2a284d9d06bcbb78, type: 3}
-      propertyPath: m_CompositePaths.m_Paths.Array.data[1].Array.data[1].y
-      value: 3.4681816
-      objectReference: {fileID: 0}
-    - target: {fileID: 3497960435441480218, guid: 5d028ac91fba444f2a284d9d06bcbb78, type: 3}
-      propertyPath: m_CompositePaths.m_Paths.Array.data[1].Array.data[2].x
-      value: -6.936363
-      objectReference: {fileID: 0}
-    - target: {fileID: 3497960435441480218, guid: 5d028ac91fba444f2a284d9d06bcbb78, type: 3}
-      propertyPath: m_CompositePaths.m_Paths.Array.data[1].Array.data[2].y
-      value: 3.4681525
-      objectReference: {fileID: 0}
-    - target: {fileID: 3497960435441480218, guid: 5d028ac91fba444f2a284d9d06bcbb78, type: 3}
-      propertyPath: m_CompositePaths.m_Paths.Array.data[1].Array.data[3].x
-      value: -6.9363337
-      objectReference: {fileID: 0}
-    - target: {fileID: 3497960435441480218, guid: 5d028ac91fba444f2a284d9d06bcbb78, type: 3}
-      propertyPath: m_CompositePaths.m_Paths.Array.data[1].Array.data[3].y
-      value: 2.8318183
-      objectReference: {fileID: 0}
     - target: {fileID: 7671645467228675171, guid: 5d028ac91fba444f2a284d9d06bcbb78, type: 3}
       propertyPath: m_Name
       value: Grid L4
@@ -399,7 +363,7 @@ GameObject:
   - component: {fileID: 1550887442}
   - component: {fileID: 1550887443}
   m_Layer: 0
-  m_Name: Scene 1
+  m_Name: Scene
   m_TagString: Scene
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -437,6 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0aab1770445141718677f45ed0fc83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  livesText: {fileID: 8516890105364373104}
 --- !u!1001 &1569839288
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -737,3 +702,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5baf3cd9c10c24c368c0106caaf86667, type: 3}
+--- !u!114 &8516890105364373104 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8516890106516228260, guid: 5baf3cd9c10c24c368c0106caaf86667, type: 3}
+  m_PrefabInstance: {fileID: 8516890105364373103}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
