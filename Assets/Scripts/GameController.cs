@@ -10,8 +10,12 @@ public class GameController : MonoBehaviour
     public static GameController InstanceG;
     Scene currentSceneScript;
     int currentIndex;
-    int loseScreenIndex = 10;
-    int winScreenIndex = 11;
+    int loseScreenIndex = 11;
+    int winScreenIndex = 12;
+    int sikeIndex = 13;
+    int matrixIndex = 14;
+    int gameWonFr = 15;
+    bool bluePilled = false;
 
     static bool[] activeScenes = new bool[] {true, false, false, 
                                     false, false, false, 
@@ -42,11 +46,20 @@ public class GameController : MonoBehaviour
 
     public void OnLevelWin()
     {
-        if (this.currentIndex == 9)
+        if (this.currentIndex == 9 && !this.bluePilled)
         {
-            // 
+            SceneManager.LoadScene(this.sikeIndex);
         }
-        else 
+        else if (this.currentIndex == 9 && this.bluePilled)
+        {
+            SceneManager.LoadScene(this.gameWonFr);
+        }
+        else if (this.currentIndex == 10)
+        {
+            this.bluePilled = true;
+            SceneManager.LoadScene(this.matrixIndex);
+        }
+        else
         {
             activeScenes[this.currentIndex] = true;
             SceneManager.LoadScene(this.winScreenIndex);

@@ -7,7 +7,6 @@ TODO
 - pause menu (w restart option)
 - fix portal angle mechanics ??
 - particle effects (more!!)
-- add end screen for level 9!!
 
 Level Specific
 - L9: maybe make it more difficult to get to the portals??

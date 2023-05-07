@@ -3,31 +3,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+// using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class HomeScene : MonoBehaviour
 {
     bool[] activeHomeScenes;
+    [SerializeField] Button[] buttons;
 
     void Start() 
     {
-        // this.activeHomeScenes = GameController.GetActiveScenes();
-        // Debug.Log(this.activeHomeScenes);
-        // GameObject canvas = GameObject.FindWithTag("Canvas");
-        // Button[] buttons = canvas.GetComponents<Button>();
-        // GameObject[] buttons = Object.FindObjectsByType(Button, FindObjectsInactive.Include, 
-        // FindObjectsSortMode.InstanceID);
-        // for (int i = 0; i < buttons.Length; i++)
-        // {
-        //     Button currentButton = buttons[i].GetComponent<Button>();
-        //     if (this.activeHomeScenes[i])
-        //     {
-        //         buttons[i].interactable = true;
-        //     }
-        //     else 
-        //     {
-        //         buttons[i].interactable = false;
-        //     }
-        // }
+        this.activeHomeScenes = GameController.GetActiveScenes();
+        Debug.Log(this.activeHomeScenes);
+        for (int i = 0; i < buttons.Length; i++)
+        {
+            if (this.activeHomeScenes[i])
+            {
+                buttons[i].interactable = true;
+            }
+            else 
+            {
+                buttons[i].interactable = false;
+            }
+        }
     }
 
     public void LevelSelect(int levelIndex)
