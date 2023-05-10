@@ -6,15 +6,9 @@ using TMPro;
 
 public class GameController : MonoBehaviour
 {
-
     public static GameController InstanceG;
     Scene currentSceneScript;
     int currentIndex;
-    int loseScreenIndex = 11;
-    int winScreenIndex = 12;
-    int sikeIndex = 13;
-    int matrixIndex = 14;
-    int gameWonFr = 15;
     bool bluePilled = false;
 
     static bool[] activeScenes = new bool[] {true, false, false, 
@@ -41,28 +35,28 @@ public class GameController : MonoBehaviour
 
     public void OnLevelLose()
     {
-        SceneManager.LoadScene(this.loseScreenIndex);
+        SceneManager.LoadScene(Constants.loseScreenIndex);
     }
 
     public void OnLevelWin()
     {
         if (this.currentIndex == 9 && !this.bluePilled)
         {
-            SceneManager.LoadScene(this.sikeIndex);
+            SceneManager.LoadScene(Constants.sikeIndex);
         }
         else if (this.currentIndex == 9 && this.bluePilled)
         {
-            SceneManager.LoadScene(this.gameWonFr);
+            SceneManager.LoadScene(Constants.gameWonFr);
         }
         else if (this.currentIndex == 10)
         {
             this.bluePilled = true;
-            SceneManager.LoadScene(this.matrixIndex);
+            SceneManager.LoadScene(Constants.matrixIndex);
         }
         else
         {
             activeScenes[this.currentIndex] = true;
-            SceneManager.LoadScene(this.winScreenIndex);
+            SceneManager.LoadScene(Constants.winScreenIndex);
         }
     }
 

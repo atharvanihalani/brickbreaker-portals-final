@@ -330,6 +330,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5258725498946770014, guid: 670635f2fdd004a54acb166beb848a72, type: 3}
   m_PrefabInstance: {fileID: 397492146}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &397492148 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1456344089750486788, guid: 670635f2fdd004a54acb166beb848a72, type: 3}
+  m_PrefabInstance: {fileID: 397492146}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &473978705
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -589,6 +594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   livesText: {fileID: 0}
+  pausePanel: {fileID: 397492148}
 --- !u!4 &2080312869 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 102638838953244463, guid: 51626b07c878b4158910eea95be78f79, type: 3}

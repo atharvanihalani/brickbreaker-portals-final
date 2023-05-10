@@ -6,8 +6,6 @@ using UnityEngine.InputSystem;
 public class Paddle : MonoBehaviour
 {
     SpriteRenderer myRenderer;
-
-    [SerializeField] float moveSpeed;
     Vector2 rawMoveInput = Vector2.zero;
 
     Vector2 minBounds;
@@ -38,7 +36,7 @@ public class Paddle : MonoBehaviour
 
     void Move() 
     {
-        Vector2 delta = Time.deltaTime * this.moveSpeed * this.rawMoveInput;
+        Vector2 delta = Time.deltaTime * Constants.moveSpeed * this.rawMoveInput;
 
         Vector2 newPos;
         newPos.x = Mathf.Clamp(transform.position.x + delta.x, 

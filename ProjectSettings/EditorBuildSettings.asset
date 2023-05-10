@@ -50,5 +50,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Matrix.unity
     guid: 0b939c6786f18498998223b27b1455c5
+  - enabled: 1
+    path: Assets/Scenes/Game Won Fr.unity
+    guid: ad8dd817fb5e24f4d8fed7b5d4532045
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 44a7b7282ad3b48a0a7d80562d65ce6a, type: 2}

@@ -14,7 +14,6 @@ public class HomeScene : MonoBehaviour
     void Start() 
     {
         this.activeHomeScenes = GameController.GetActiveScenes();
-        Debug.Log(this.activeHomeScenes);
         for (int i = 0; i < buttons.Length; i++)
         {
             if (this.activeHomeScenes[i])

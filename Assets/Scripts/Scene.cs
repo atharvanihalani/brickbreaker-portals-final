@@ -3,34 +3,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 using TMPro;
 
 public class Scene : MonoBehaviour
 {
-    public static Scene InstanceS;
     bool isInAlt = false;
     int numBricks;
     int lives = 3;
     [SerializeField] TextMeshProUGUI livesText;
+    [SerializeField] GameObject pausePanel;
     GameController myController;
     BricksMap myBricksMap;
     AltBricksMap myAltBricksMap;
     Ball myBall;
     Paddle myPaddle;
     bool justTeleported = false;
+    bool isPaused = false;
     int currentLevelIndex;
+
 
     void Awake()
     {
-        // if (InstanceS != null)
-        // {
-        //     Destroy(gameObject);
-        //     return;
-        // }
-
-        // InstanceS = this;
-        // DontDestroyOnLoad(gameObject);
-
+        Debug.Log(this.isPaused);
         this.myBricksMap = GetComponentInChildren<BricksMap>();
         this.myAltBricksMap = GetComponentInChildren<AltBricksMap>();
         this.myBall = GetComponentInChildren<Ball>();
@@ -43,6 +38,26 @@ public class Scene : MonoBehaviour
     {
         this.numBricks = this.myBricksMap.GetBrickCount();
         this.myController.ReloadSceneDeets();
+    }
+
+    void Update() 
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (this.isPaused)
+            {
+                Time.timeScale = 1f;
+                this.pausePanel.SetActive(false);
+                this.isPaused = false;
+            }
+            else
+            {
+                Time.timeScale = 0f;
+                this.pausePanel.SetActive(true);
+                this.isPaused = true;
+            }
+        }
+
     }
 
     public int GetIndex()
@@ -127,7 +142,6 @@ public class Scene : MonoBehaviour
         this.myBricksMap.ClearAll();
         this.myBricksMap.AddBricksAt(altBrickPos);
     }
-
 
     public IEnumerator ResetJustTeleported()
     {
