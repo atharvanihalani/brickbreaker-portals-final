@@ -13,6 +13,15 @@ public class Scene : MonoBehaviour
     int lives = 3;
     [SerializeField] TextMeshProUGUI livesText;
     [SerializeField] GameObject pausePanel;
+
+    [SerializeField] GameObject regBackground;
+    [SerializeField] GameObject altBackground;
+    [SerializeField] Sprite regBall;
+    [SerializeField] Sprite altBall;
+    [SerializeField] Sprite regPaddle;
+    [SerializeField] Sprite altPaddle;
+
+
     GameController myController;
     BricksMap myBricksMap;
     AltBricksMap myAltBricksMap;
@@ -25,7 +34,6 @@ public class Scene : MonoBehaviour
 
     void Awake()
     {
-        Debug.Log(this.isPaused);
         this.myBricksMap = GetComponentInChildren<BricksMap>();
         this.myAltBricksMap = GetComponentInChildren<AltBricksMap>();
         this.myBall = GetComponentInChildren<Ball>();
@@ -114,33 +122,53 @@ public class Scene : MonoBehaviour
         this.myPaddle.ResetPosition();
     }
 
-    public void Teleport(Vector3 ballNewPos)
+    public void Teleport(Vector3 ballNewPos, Portal portal)
     {
         if (this.justTeleported) 
         {
             return;
         }
+        portal.PlaySound();
         this.justTeleported = true;
         this.myBall.StopTrail();
         StartCoroutine(this.ResetJustTeleported());
 
+        this.isInAlt = !this.isInAlt;
         this.myBall.Teleport(ballNewPos);
 
-        Vector3Int[] brickPositions = this.myBricksMap.GetBrickPositions().ToArray();
-        Vector3Int[] altBrickPositions = this.myAltBricksMap.GetBrickPositions().ToArray();
-
-        this.SwitchBrickMaps(brickPositions, altBrickPositions);
-        this.isInAlt = !this.isInAlt;
-
-        // change background etc
+        this.SwitchBrickMaps();
+        this.SwitchSkins();
     }
 
-    void SwitchBrickMaps(Vector3Int[] brickPos, Vector3Int[] altBrickPos)  
+    void SwitchSkins()
     {
+        SpriteRenderer ballRenderer = this.myBall.GetComponent<SpriteRenderer>();
+        SpriteRenderer paddleRenderer = this.myPaddle.GetComponent<SpriteRenderer>();
+        if (this.isInAlt)
+        {
+            this.regBackground.SetActive(false);
+            this.altBackground.SetActive(true);
+            ballRenderer.sprite = this.altBall;
+            paddleRenderer.sprite = this.altPaddle;
+        }
+        else
+        {
+            this.altBackground.SetActive(false);
+            this.regBackground.SetActive(true);
+            ballRenderer.sprite = this.regBall;
+            paddleRenderer.sprite = this.regPaddle;
+        }        
+    }
+
+    void SwitchBrickMaps()  
+    {
+        Vector3Int[] brickPos = this.myBricksMap.GetBrickPositions().ToArray();
+        Vector3Int[] altBrickPos = this.myAltBricksMap.GetBrickPositions().ToArray();
+
         this.myAltBricksMap.ClearAll();
         this.myAltBricksMap.AddBricksAt(brickPos);
         this.myBricksMap.ClearAll();
-        this.myBricksMap.AddBricksAt(altBrickPos);
+        this.myBricksMap.AddBricksAt(altBrickPos, this.isInAlt);
     }
 
     public IEnumerator ResetJustTeleported()

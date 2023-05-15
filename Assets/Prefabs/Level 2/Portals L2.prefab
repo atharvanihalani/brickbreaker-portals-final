@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5384530609668999594, guid: bdf8a85b3f9c94fd6adca68758bebc1e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.39
+      value: 2.1
       objectReference: {fileID: 0}
     - target: {fileID: 5384530610680927464, guid: bdf8a85b3f9c94fd6adca68758bebc1e, type: 3}
       propertyPath: m_RootOrder
@@ -61,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5384530610680927465, guid: bdf8a85b3f9c94fd6adca68758bebc1e, type: 3}
       propertyPath: m_Name
-      value: Portals L1
+      value: Portals L2
       objectReference: {fileID: 0}
     - target: {fileID: 5384530611019530079, guid: bdf8a85b3f9c94fd6adca68758bebc1e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -69,7 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5384530611019530079, guid: bdf8a85b3f9c94fd6adca68758bebc1e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.41
+      value: 2.1
       objectReference: {fileID: 0}
     - target: {fileID: 5384530611019530079, guid: bdf8a85b3f9c94fd6adca68758bebc1e, type: 3}
       propertyPath: m_LocalRotation.w

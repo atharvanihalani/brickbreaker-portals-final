@@ -1,9 +1,7 @@
 TODO
-- diff graphics for altmap and regmap (background, bricks, trail gradient?)
-- diff portal graphics
-- ADD AOUND
-- fix portal angle mechanics ??
+- Sounds: background music
 - particle effects (more!!)
+- fix portal angle mechanics ??
 
 Level Specific
 - L8: maybe make it more difficult to get to the portals??
@@ -11,8 +9,12 @@ Level Specific
       to bounce around angles to get there??
 
 Bugs:
-- ball goes straight along wall edge when reflecting at a steep angle
-- infinite portal rebounding
 - uneven collision w brick edges (use tilemap collider?)
 - trail follows ball when life lost
-? ball moves at a v steep angle => hella boring
+
+Credits:
+Background – adobe stock
+Ball/paddle/bricks – puzzle pack free sprites
+Buttons – tilevania?
+Sounds –
+Font – 

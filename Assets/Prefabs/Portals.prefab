@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5384530609668999599}
   - component: {fileID: 5384530609668999592}
   - component: {fileID: 5384530609668999593}
+  - component: {fileID: 6494723506386725286}
   m_Layer: 0
   m_Name: Portal B
   m_TagString: Untagged
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: -231551197
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 06ad6cd8ae0264e6c8d7fe6d49b04d7a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ca5794a9c2b2a4fd98d3e2375088d6cb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -103,8 +104,10 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0.01
   m_Points:
-  - {x: -0.48871866, y: -0.03371679}
-  - {x: 0.47207913, y: -0.033542242}
+  - {x: -0.4334597, y: 0.062069632}
+  - {x: -0.33042765, y: -0.033702306}
+  - {x: 0.3310149, y: -0.033555217}
+  - {x: 0.41404095, y: 0.05140439}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -134,10 +137,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.37546262, y: 0.18430768}
-      - {x: -0.46666002, y: -0.011812055}
-      - {x: 0.4609604, y: -0.009285629}
-      - {x: 0.37900755, y: 0.18373984}
+    - - {x: -0.39288285, y: 0.18779175}
+      - {x: -0.26769838, y: 0.049067564}
+      - {x: 0.2656445, y: 0.05292827}
+      - {x: 0.3843859, y: 0.18727075}
 --- !u!114 &5384530609668999593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,6 +154,102 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   portalPair: {fileID: 5384530611019530067}
+--- !u!82 &6494723506386725286
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5384530609668999595}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 291f12be634ba4806853ab1129126be8, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &5384530610680927465
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,6 +296,7 @@ GameObject:
   - component: {fileID: 5384530611019530078}
   - component: {fileID: 5384530611019530076}
   - component: {fileID: 5384530611019530067}
+  - component: {fileID: 4207159420799134491}
   m_Layer: 0
   m_Name: Portal A
   m_TagString: Untagged
@@ -260,7 +360,7 @@ SpriteRenderer:
   m_SortingLayerID: -231551197
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 06ad6cd8ae0264e6c8d7fe6d49b04d7a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ca5794a9c2b2a4fd98d3e2375088d6cb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -287,8 +387,10 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0.01
   m_Points:
-  - {x: -0.48871866, y: -0.03371679}
-  - {x: 0.47207913, y: -0.033542242}
+  - {x: -0.4334597, y: 0.062069632}
+  - {x: -0.33042765, y: -0.033702306}
+  - {x: 0.3310149, y: -0.033555217}
+  - {x: 0.41404095, y: 0.05140439}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -318,10 +420,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.37546262, y: 0.18430768}
-      - {x: -0.46666002, y: -0.011812055}
-      - {x: 0.4609604, y: -0.009285629}
-      - {x: 0.37900755, y: 0.18373984}
+    - - {x: -0.39288285, y: 0.18779175}
+      - {x: -0.26769838, y: 0.049067564}
+      - {x: 0.2656445, y: 0.05292827}
+      - {x: 0.3843859, y: 0.18727075}
 --- !u!114 &5384530611019530067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,3 +437,99 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   portalPair: {fileID: 5384530609668999593}
+--- !u!82 &4207159420799134491
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5384530611019530072}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: bd7960ae5435f426c923eb4c13662ed2, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

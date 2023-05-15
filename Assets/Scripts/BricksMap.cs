@@ -5,7 +5,8 @@ using UnityEngine.Tilemaps;
 
 public class BricksMap : MonoBehaviour
 {
-    [SerializeField] TileBase myTileBase;
+    [SerializeField] TileBase regTileBase;
+    [SerializeField] TileBase altTileBase;
     Scene myScene;
     Tilemap myTilemap;
     AudioSource audioSource;
@@ -67,12 +68,19 @@ public class BricksMap : MonoBehaviour
         this.myTilemap.ClearAllTiles();
     }
 
-    public void AddBricksAt(Vector3Int[] positions)
+    public void AddBricksAt(Vector3Int[] positions, bool isAltBricks)
     {
         TileBase[] tileArray = new TileBase[positions.Length];
         for (int i = 0; i < tileArray.Length; i++)
         {
-            tileArray[i] = this.myTileBase;
+            if (isAltBricks)
+            {
+                tileArray[i] = this.altTileBase;
+            }
+            else
+            {
+                tileArray[i] = this.regTileBase;
+            }
         }
         this.myTilemap.SetTiles(positions, tileArray);
     }

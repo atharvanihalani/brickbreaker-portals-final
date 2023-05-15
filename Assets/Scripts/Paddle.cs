@@ -11,10 +11,19 @@ public class Paddle : MonoBehaviour
     Vector2 minBounds;
     Vector2 maxBounds;
     float myWidth;
+    AudioSource audioSource;
 
-    void Awake() 
+    void Awake()
     {
         this.myRenderer = GetComponent<SpriteRenderer>();
+        this.audioSource = GetComponent<AudioSource>();
+    }
+
+    void OnCollisionEnter2D(Collision2D other) {
+        if (other.collider.tag == "Ball")
+        {
+            this.audioSource.Play(0);
+        }
     }
 
     void Start()
@@ -34,12 +43,12 @@ public class Paddle : MonoBehaviour
         this.rawMoveInput.x = value.Get<Vector2>().x;
     }
 
-    void Move() 
+    void Move()
     {
         Vector2 delta = Time.deltaTime * Constants.moveSpeed * this.rawMoveInput;
 
         Vector2 newPos;
-        newPos.x = Mathf.Clamp(transform.position.x + delta.x, 
+        newPos.x = Mathf.Clamp(transform.position.x + delta.x,
                             this.minBounds.x + (this.myWidth / 2),
                             this.maxBounds.x - (this.myWidth / 2));
         newPos.y = transform.position.y;
@@ -48,12 +57,12 @@ public class Paddle : MonoBehaviour
     }
 
 
-    public float GetXPos() 
+    public float GetXPos()
     {
         return transform.position.x;
     }
 
-    public float GetWidth() 
+    public float GetWidth()
     {
         return this.myWidth;
     }

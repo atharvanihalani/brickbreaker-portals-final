@@ -8,5 +8,6 @@ public class MenuButton : MonoBehaviour
     public void LoadHomeScene()
     {
         SceneManager.LoadScene(0);
+        Time.timeScale = 1f;
     }
 }

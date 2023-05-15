@@ -578,6 +578,7 @@ Transform:
   - {fileID: 1325681267}
   - {fileID: 41125737}
   - {fileID: 397492147}
+  - {fileID: 1822724876}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -595,6 +596,84 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   livesText: {fileID: 0}
   pausePanel: {fileID: 397492148}
+  regBackground: {fileID: 1822724877}
+  altBackground: {fileID: 1822724875}
+  regBall: {fileID: 21300000, guid: 1d4ad34158b3145d6a55ddb121f56a61, type: 3}
+  altBall: {fileID: 21300000, guid: 701ff45f6d2ca4c028e4f27ba1854468, type: 3}
+  regPaddle: {fileID: 21300000, guid: a7350f705c79b4b9fbbb808dd98ddb1f, type: 3}
+  altPaddle: {fileID: 21300000, guid: 097a7b9dc976d43b18403208f95e3b15, type: 3}
+--- !u!1001 &1822724874
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1550887442}
+    m_Modifications:
+    - target: {fileID: 2481151867021437024, guid: 37bd248948ca344ac8bac2b7ded797d1, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481151867021437024, guid: 37bd248948ca344ac8bac2b7ded797d1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481151867021437024, guid: 37bd248948ca344ac8bac2b7ded797d1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481151867021437024, guid: 37bd248948ca344ac8bac2b7ded797d1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481151867021437024, guid: 37bd248948ca344ac8bac2b7ded797d1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481151867021437024, guid: 37bd248948ca344ac8bac2b7ded797d1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481151867021437024, guid: 37bd248948ca344ac8bac2b7ded797d1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481151867021437024, guid: 37bd248948ca344ac8bac2b7ded797d1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481151867021437024, guid: 37bd248948ca344ac8bac2b7ded797d1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481151867021437024, guid: 37bd248948ca344ac8bac2b7ded797d1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481151867021437024, guid: 37bd248948ca344ac8bac2b7ded797d1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3614150905090064019, guid: 37bd248948ca344ac8bac2b7ded797d1, type: 3}
+      propertyPath: m_Name
+      value: Backgrounds
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 37bd248948ca344ac8bac2b7ded797d1, type: 3}
+--- !u!1 &1822724875 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6791564100883399427, guid: 37bd248948ca344ac8bac2b7ded797d1, type: 3}
+  m_PrefabInstance: {fileID: 1822724874}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1822724876 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2481151867021437024, guid: 37bd248948ca344ac8bac2b7ded797d1, type: 3}
+  m_PrefabInstance: {fileID: 1822724874}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1822724877 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6791564102669100058, guid: 37bd248948ca344ac8bac2b7ded797d1, type: 3}
+  m_PrefabInstance: {fileID: 1822724874}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2080312869 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 102638838953244463, guid: 51626b07c878b4158910eea95be78f79, type: 3}
